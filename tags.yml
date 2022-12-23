@@ -1,1 +1,20 @@
-
+---
+ - name: restart the apache 
+   hosts: dev
+   gather_facts: false
+   tasks:
+         - name: first tag tasks
+           copy:
+               content: "hello"
+               dest: /var/www/html/index.html
+           tags:
+                 - alpha
+                 - never
+         - name: second tag taks
+           copy:
+               content: "bye bye"
+               dest: /var/www/html/index.html
+           tags:
+                 - beta
+                 - never
+ 
