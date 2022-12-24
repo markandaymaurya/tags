@@ -1,2 +1,20 @@
-
+---
+- name: modify the tags playbook to specify the tags
+  hosts: dev
+  gather_facts: false
+  tasks:
+      - name: tags with option alpha
+        copy:
+           content: "hello"
+           dest: /var/www/html/index.html
+        tags:
+            - alpha
+            - never
+      - name: tags with option beta
+        copy:
+           content: "bye bye"
+           dest: /var/www/html/index.html
+        tags:
+            - beta
+            - never
  
